@@ -1,12 +1,13 @@
 package com.jpark.memowithnodejs;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.jpark.memowithnodejs.domain.QnA;
@@ -44,9 +45,12 @@ public class WriteActivity extends AppCompatActivity {
                     return result;
                 }
                 @Override
-                protected void onPostExecute(String s) {
-                    super.onPostExecute(s);
-                    Snackbar.make(view, s, Snackbar.LENGTH_LONG).show();
+                protected void onPostExecute(String result) {
+                    super.onPostExecute(result);
+                    Toast.makeText(WriteActivity.this, result, Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(WriteActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
             };
             network.execute(editTitle.getText().toString()

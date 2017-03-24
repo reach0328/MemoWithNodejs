@@ -50,6 +50,11 @@ public class ListActivity extends AppCompatActivity {
         adapter = new CustomAdapter(this,datas);
         listView.setAdapter(adapter);
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
 
     class CustomAdapter extends BaseAdapter{
         List<QnA> datas;
