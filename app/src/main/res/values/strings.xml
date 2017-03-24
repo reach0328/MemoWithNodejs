@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MemoWithNodejs</string>
+    <string name="title_activity_write">WriteActivity</string>
+    <string name="title_activity_list">ListActivity</string>
+</resources>
